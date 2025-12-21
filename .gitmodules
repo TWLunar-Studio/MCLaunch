@@ -1,0 +1,3 @@
+[submodule "MinecraftLaunch"]
+	path = MinecraftLaunch
+	url = https://github.com/Lunova-Studio/MinecraftLaunch.git

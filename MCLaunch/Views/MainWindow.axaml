@@ -1,0 +1,43 @@
+<suki:SukiWindow xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:MCLaunch.ViewModels"
+        xmlns:page="using:MCLaunch.Page"
+        xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Content="https://github.com/kikipoulet/SukiUI"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MCLaunch.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="MCLaunch"
+        BackgroundStyle="Bubble">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    <Grid>
+        <suki:SukiSideMenu IsSearchEnabled="True">
+            <suki:SukiSideMenu.Items>
+                <suki:SukiSideMenuItem Header="主菜单" Classes="Compact">
+                    <suki:SukiSideMenuItem.Icon>
+                        <PathIcon Data="{x:Static Content:Icons.Menu}"/>
+                    </suki:SukiSideMenuItem.Icon>
+                    <suki:SukiSideMenuItem.PageContent>
+                        <page:Start/>
+                    </suki:SukiSideMenuItem.PageContent>
+                </suki:SukiSideMenuItem>
+            </suki:SukiSideMenu.Items>
+
+            <suki:SukiSideMenu.HeaderContent>
+                <!-- Header Content -->
+            </suki:SukiSideMenu.HeaderContent>
+
+            <suki:SukiSideMenu.FooterContent>
+                <!-- Footer Content -->
+            </suki:SukiSideMenu.FooterContent>
+        </suki:SukiSideMenu>
+    </Grid>
+</suki:SukiWindow>
