@@ -1,0 +1,66 @@
+﻿name: TWLunar_Launcher 自动构建
+on: [push, pull_request, workflow_dispatch]
+jobs: 
+  version:
+    runs-on: ubuntu-latest
+    outputs: 
+      v: ${{ steps.date.outputs.version }}
+      y: ${{ steps.date.outputs.y }}
+      md: ${{ steps.date.outputs.md }}
+      hm: ${{ steps.date.outputs.hm }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Get Version
+        id: date
+        run: |
+          echo "version=0.1.0.${{ github.run_number }}" >> $GITHUB_OUTPUT
+          echo "y=$(date +%Y)" >> $GITHUB_OUTPUT
+          echo "md=$(date +%m%d)" >> $GITHUB_OUTPUT
+          echo "hm=$(date +%H%M)" >> $GITHUB_OUTPUT
+      - name: output version
+        run: |
+          echo "Build version: ${{ steps.date.outputs.version }}"
+  # Windows 构建
+  win-x64:
+    needs: version
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Build (x64)
+        run: |
+          dotnet publish ./MCLaunch.csproj -c Release -r win-x64 `
+            /p:PublishSingleFile=true `
+            /p:PublishReadyToRun=true `
+            /p:Version=${{ needs.version.outputs.v }} `
+            -o "./publish/win-x64" -p:DebugType=none -p:DebugSymbols=false
+      - name: Create ZIP (x64)
+        run: |
+          Compress-Archive -Path "./publish/win-x64/*" -DestinationPath "./TWLunar_Launcher-${{ needs.version.outputs.v }}.win-x64.zip" -Force
+          
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: TWLunar_Launcher.win-x64.zip
+          path: TWLunar_Launcher-${{ needs.version.outputs.v }}.win-x64.zip
+  publish:
+    needs: 
+      - version
+      - win-x64
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare release info
+        id: release
+        run: |
+          echo "date=$(date +'%Y-%m-%d.%H-%M-%S')" >> $GITHUB_OUTPUT
+          echo "title=v${{ needs.version.outputs.v }}" >> $GITHUB_OUTPUT
+          echo "tag=${{ needs.version.outputs.v }}" >> $GITHUB_OUTPUT
+            
+      - name: Download-TWLunar_Launcher.win-x64.zip
+        uses: actions/download-artifact@v4
+        with:
+          name: TWLunar_Launcher.win-x64.zip
