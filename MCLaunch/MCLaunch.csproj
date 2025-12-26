@@ -27,6 +27,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\MinecraftLaunch\MinecraftLaunch\MinecraftLaunch.csproj" />
+      <ProjectReference Include="../MinecraftLaunch/MinecraftLaunch/MinecraftLaunch.csproj" />
     </ItemGroup>
 </Project>
