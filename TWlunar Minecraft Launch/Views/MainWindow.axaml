@@ -37,7 +37,7 @@
     </Design.DataContext>
     
     <Grid>
-        <suki:SukiSideMenu IsSearchEnabled="True">
+        <suki:SukiSideMenu IsSearchEnabled="True" ZIndex="0">
                 <suki:SukiSideMenuItem Header="首页">
                     <suki:SukiSideMenuItem.Icon>
                         <Image Source="/Assets/avalonia-logo.ico"></Image>
@@ -52,37 +52,41 @@
                     </suki:SukiSideMenuItem.PageContent>
                 </suki:SukiSideMenuItem>
         </suki:SukiSideMenu>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="2*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Border x:Name="Border1" Grid.RowSpan="2" Background="#30000000"></Border>
-            <Border x:Name="Border2" Grid.Row="1"  Background="Azure" CornerRadius="30,30,0,0">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Button 
-                        x:Name="Button1"
-                        Grid.Row="0" 
-                        Background="Brown"
-                        HorizontalAlignment="Right"
-                        Margin="0,10,10,0"
-                        Height="25" Width="25" 
-                        CornerRadius="13"
-                        Padding="0"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Click="CloseBorderButton_OnClick">
-                        <avalonia:MaterialIcon Kind="Close"/>
-                    </Button>
-                    <ContentControl
-                        Grid.Row="1"
-                        Content="{Binding CurrentPage}"/>
-                </Grid>
-                </Border>
-        </Grid>
+        
+        <Border x:Name="BorderOverlay" ZIndex="100" Background="#30000000" IsHitTestVisible="False" Height="0"/>
+        <Border x:Name="BorderContent" ZIndex="101" Background="Azure" CornerRadius="30,30,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button 
+                    x:Name="ButtonClose"
+                    Grid.Row="0" 
+                    Background="Brown"
+                    HorizontalAlignment="Right"
+                    Margin="0,10,10,0"
+                    Height="25" Width="25" 
+                    CornerRadius="13"
+                    Padding="0"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Click="CloseBorderButton_OnClick">
+                    <avalonia:MaterialIcon Kind="Close"/>
+                </Button>
+                <ContentControl
+                    Grid.Row="1"
+                    Content="{Binding CurrentPage}">
+                    <ContentControl.DataTemplates>
+                        <DataTemplate DataType="vm:VersionListViewModel">
+                            <views:VersionList/>
+                        </DataTemplate>
+                        <DataTemplate DataType="vm:InstallConfigViewModel">
+                            <views:InstallConfig/>
+                        </DataTemplate>
+                    </ContentControl.DataTemplates>
+                </ContentControl>
+            </Grid>
+        </Border>
     </Grid>
 </suki:SukiWindow>

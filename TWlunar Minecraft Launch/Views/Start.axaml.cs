@@ -29,7 +29,8 @@ public partial class Start : UserControl
             if (parent is MainWindow mainWindow)
             {
                 Console.WriteLine("找到 MainWindow");
-                mainWindow.OpenBorder();
+                // 使用默认高度比例 1/3
+                mainWindow.OpenBorder(1.0 / 3.0);
                 var viewModel = mainWindow.DataContext as MainWindowViewModel;
                 if (viewModel != null)
                 {

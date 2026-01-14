@@ -45,5 +45,32 @@ public partial class Install : UserControl
 
     private void VersionListBox_OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
     {
+        if (sender is ListBox listBox && listBox.SelectedItem is VersionManifestEntry selectedVersion)
+        {
+            Console.WriteLine($"选择了版本: {selectedVersion.Id}");
+            
+            // 查找 MainWindow 并打开配置界面
+            var parent = this.Parent;
+            while (parent != null)
+            {
+                if (parent is MainWindow mainWindow)
+                {
+                    // 创建配置 ViewModel
+                    var configViewModel = new InstallConfigViewModel(selectedVersion);
+                    
+                    // 打开 Border，使用全屏覆盖（heightRatio = 1.0）
+                    mainWindow.OpenBorder(1.0);
+                    
+                    // 设置 CurrentPage
+                    var viewModel = mainWindow.DataContext as MainWindowViewModel;
+                    if (viewModel != null)
+                    {
+                        viewModel.CurrentPage = configViewModel;
+                    }
+                    break;
+                }
+                parent = (parent as Control)?.Parent;
+            }
+        }
     }
 }
