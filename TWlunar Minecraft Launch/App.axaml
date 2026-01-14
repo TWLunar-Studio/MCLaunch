@@ -2,14 +2,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="TWlunar_Minecraft_Launch.App"
              xmlns:local="using:TWlunar_Minecraft_Launch"
-             RequestedThemeVariant="Default">
+             RequestedThemeVariant="Default"
+             xmlns:sukiUi="clr-namespace:SukiUI;assembly=SukiUI"
+             xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
         <local:ViewLocator/>
     </Application.DataTemplates>
-  
+    <Application.Resources>
+          <FontFamily x:Key="SiYuanHeiTi">avares://TWlunar Minecraft Launch/Assets/Font/#Source Sans 3</FontFamily>
+      </Application.Resources>
     <Application.Styles>
-        <FluentTheme />
+        <sukiUi:SukiTheme Locale="zh-CN" ThemeColor="Orange"/>
+        <materialIcons:MaterialIconStyles />
+        <Style Selector="TemplatedControl">
+            <Setter Property="FontFamily" Value="{StaticResource SiYuanHeiTi}" />
+        </Style>
     </Application.Styles>
+    
 </Application>

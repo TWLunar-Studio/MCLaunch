@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWlunar Minecraft Launch", "TWlunar Minecraft Launch\TWlunar Minecraft Launch.csproj", "{B4BA40D9-8225-4806-9E3A-6ADC5B66696A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinecraftLaunch", "MinecraftLaunch\MinecraftLaunch\MinecraftLaunch.csproj", "{AA0C41B3-6F3C-4818-8EDC-4771619B3BA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinecraftLaunch.Base", "MinecraftLaunch\MinecraftLaunch.Base\MinecraftLaunch.Base.csproj", "{6C62BD99-A8D9-41BB-B387-0F8EF98A884E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{B4BA40D9-8225-4806-9E3A-6ADC5B66696A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4BA40D9-8225-4806-9E3A-6ADC5B66696A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4BA40D9-8225-4806-9E3A-6ADC5B66696A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA0C41B3-6F3C-4818-8EDC-4771619B3BA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA0C41B3-6F3C-4818-8EDC-4771619B3BA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA0C41B3-6F3C-4818-8EDC-4771619B3BA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA0C41B3-6F3C-4818-8EDC-4771619B3BA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C62BD99-A8D9-41BB-B387-0F8EF98A884E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C62BD99-A8D9-41BB-B387-0F8EF98A884E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C62BD99-A8D9-41BB-B387-0F8EF98A884E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C62BD99-A8D9-41BB-B387-0F8EF98A884E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

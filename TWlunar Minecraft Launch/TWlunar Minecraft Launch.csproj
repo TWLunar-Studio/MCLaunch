@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+        <LangVersion>13</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -23,6 +24,13 @@
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1"/>
+        <PackageReference Include="Material.Icons" Version="2.4.1" />
+        <PackageReference Include="Material.Icons.Avalonia" Version="2.4.1" />
         <PackageReference Include="SukiUI" Version="6.0.3" />
+        <PackageReference Include="System.Linq.Async" Version="7.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MinecraftLaunch\MinecraftLaunch\MinecraftLaunch.csproj" />
     </ItemGroup>
 </Project>

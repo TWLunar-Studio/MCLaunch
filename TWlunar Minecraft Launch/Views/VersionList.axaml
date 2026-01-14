@@ -1,0 +1,25 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:TWlunar_Minecraft_Launch.ViewModels"
+             xmlns:me="clr-namespace:MinecraftLaunch.Base.Models.Game;assembly=MinecraftLaunch.Base"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="TWlunar_Minecraft_Launch.Views.VersionList">
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:VersionListViewModel/>
+    </Design.DataContext>
+    <Grid x:DataType="vm:VersionListViewModel">
+        <ListBox
+            ItemsSource="{Binding Versions}" 
+            SelectedItem="{Binding SelectedVersion}">
+            <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="me:MinecraftEntry">
+                    <TextBlock Text="{Binding Version.VersionId}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

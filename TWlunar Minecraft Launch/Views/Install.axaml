@@ -1,0 +1,84 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:TWlunar_Minecraft_Launch.ViewModels"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+             xmlns:me="clr-namespace:MinecraftLaunch.Base.Models.Network;assembly=MinecraftLaunch.Base"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="TWlunar_Minecraft_Launch.Views.Install">
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:InstallViewModel/>
+    </Design.DataContext>
+    <Grid Margin="50,50,0,50">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <suki:GlassCard Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" CornerRadius="20" HorizontalAlignment="Right">
+            <ListBox HorizontalAlignment="Right" FontFamily="SiYuanHeiTi" Width="120" SelectedIndex="0">
+                    <ListBoxItem>
+                         本体
+                    </ListBoxItem>
+                    <ListBoxItem IsEnabled="False" Background="Gray">
+                        社区资源
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        Mod
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        光影
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        材质包
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        数据包
+                    </ListBoxItem>
+                </ListBox>
+        </suki:GlassCard>
+        <ListBox  
+            x:Name="VersionfilterList"
+            Grid.Row="0" 
+            Grid.Column="0" 
+            SelectionChanged="Version_filterList_OnSelectionChanged">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBoxItem>全部版本</ListBoxItem>
+            <ListBoxItem>正式版</ListBoxItem>
+            <ListBoxItem>预览版</ListBoxItem>
+            <ListBoxItem>考古版</ListBoxItem>
+        </ListBox>
+        <suki:GlassCard Grid.Row="1" Grid.Column="0">
+            <ListBox 
+                x:Name="VersionListBox"
+                SelectionChanged="VersionListBox_OnSelectionChanged"
+                x:DataType="vm:InstallViewModel" 
+                ItemsSource="{Binding VersionList}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate x:DataType="me:VersionManifestEntry">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Id}"/>
+                            <TextBlock FontWeight="Light" >
+                                <Run Text="{Binding Type}"></Run>
+                                <Run Text="{Binding ReleaseTime}"></Run>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </suki:GlassCard>
+        
+        
+    </Grid>
+</UserControl>

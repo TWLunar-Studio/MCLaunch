@@ -1,20 +1,88 @@
-<Window xmlns="https://github.com/avaloniaui"
+<suki:SukiWindow xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:TWlunar_Minecraft_Launch.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+        xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        xmlns:views="clr-namespace:TWlunar_Minecraft_Launch.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="TWlunar_Minecraft_Launch.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="TWlunar_Minecraft_Launch">
+        Title="TWlunar_Minecraft_Launch"
+        IsMenuVisible="True">
+    <suki:SukiWindow.LogoContent>
+        <Image Source="/Assets/avalonia-logo.ico" 
+               Width="24" Height="24"
+               Margin="5"/>
+    </suki:SukiWindow.LogoContent>
+    <suki:SukiWindow.MenuItems>
+        <MenuItem Header="切换">
+            <MenuItem Command="{Binding ToggleBaseThemeCommand}" Header="{Binding BaseTheme}">
+                <MenuItem.Icon>
+                    <avalonia:MaterialIcon Kind="Lightbulb"/>
+                </MenuItem.Icon>
+            </MenuItem>
+        </MenuItem>
+    </suki:SukiWindow.MenuItems>
+    <suki:SukiWindow.Hosts>
+        <suki:SukiToastHost Manager="{Binding ToastManager}"/>
+    </suki:SukiWindow.Hosts>
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-</Window>
+    
+    <Grid>
+        <suki:SukiSideMenu IsSearchEnabled="True">
+                <suki:SukiSideMenuItem Header="首页">
+                    <suki:SukiSideMenuItem.Icon>
+                        <Image Source="/Assets/avalonia-logo.ico"></Image>
+                    </suki:SukiSideMenuItem.Icon>
+                    <suki:SukiSideMenuItem.PageContent>
+                        <views:Start/>
+                    </suki:SukiSideMenuItem.PageContent>
+                </suki:SukiSideMenuItem>
+                <suki:SukiSideMenuItem Header="安装">
+                    <suki:SukiSideMenuItem.PageContent>
+                        <views:Install x:Name="InstallView"/>
+                    </suki:SukiSideMenuItem.PageContent>
+                </suki:SukiSideMenuItem>
+        </suki:SukiSideMenu>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border x:Name="Border1" Grid.RowSpan="2" Background="#30000000"></Border>
+            <Border x:Name="Border2" Grid.Row="1"  Background="Azure" CornerRadius="30,30,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button 
+                        x:Name="Button1"
+                        Grid.Row="0" 
+                        Background="Brown"
+                        HorizontalAlignment="Right"
+                        Margin="0,10,10,0"
+                        Height="25" Width="25" 
+                        CornerRadius="13"
+                        Padding="0"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Click="CloseBorderButton_OnClick">
+                        <avalonia:MaterialIcon Kind="Close"/>
+                    </Button>
+                    <ContentControl
+                        Grid.Row="1"
+                        Content="{Binding CurrentPage}"/>
+                </Grid>
+                </Border>
+        </Grid>
+    </Grid>
+</suki:SukiWindow>
