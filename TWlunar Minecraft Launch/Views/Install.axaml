@@ -22,7 +22,7 @@
             <RowDefinition Height="8*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <suki:GlassCard Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" CornerRadius="20" HorizontalAlignment="Right">
+        <suki:GlassCard Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" CornerRadius="20" HorizontalAlignment="Right" Padding="0">
             <ListBox HorizontalAlignment="Right" FontFamily="SiYuanHeiTi" Width="120" SelectedIndex="0">
                     <ListBoxItem>
                          本体
@@ -48,10 +48,11 @@
             x:Name="VersionfilterList"
             Grid.Row="0" 
             Grid.Column="0" 
-            SelectionChanged="Version_filterList_OnSelectionChanged">
+            SelectionChanged="Version_filterList_OnSelectionChanged"
+            Padding="0">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal" />
+                    <StackPanel Orientation="Horizontal"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
             <ListBoxItem>全部版本</ListBoxItem>

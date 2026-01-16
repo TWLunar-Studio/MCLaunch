@@ -11,14 +11,13 @@
         <local:ViewLocator/>
     </Application.DataTemplates>
     <Application.Resources>
-          <FontFamily x:Key="SiYuanHeiTi">avares://TWlunar Minecraft Launch/Assets/Font/#Source Sans 3</FontFamily>
-      </Application.Resources>
+        <ResourceDictionary>
+            <FontFamily x:Key="DefaultFontFamily">avares://TWlunar Minecraft Launch/Assets/Font/#Source Han Sans CN</FontFamily>
+        </ResourceDictionary>
+    </Application.Resources>
     <Application.Styles>
         <sukiUi:SukiTheme Locale="zh-CN" ThemeColor="Orange"/>
         <materialIcons:MaterialIconStyles />
-        <Style Selector="TemplatedControl">
-            <Setter Property="FontFamily" Value="{StaticResource SiYuanHeiTi}" />
-        </Style>
     </Application.Styles>
     
 </Application>

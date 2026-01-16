@@ -3,6 +3,7 @@ using Avalonia.Collections;
 using Avalonia.Styling;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using MinecraftLaunch.Base.Models.Game;
 using SukiUI;
 using SukiUI.Models;
 using SukiUI.Toasts;
@@ -21,6 +22,9 @@ public partial class MainWindowViewModel : ViewModelBase
     private ViewModelBase _currentPage ;
     
     [ObservableProperty] private ThemeVariant _baseTheme = ThemeVariant.Light;
+
+    [ObservableProperty]
+    private MinecraftEntry? _selectedVersion;
 
     public static MainWindowViewModel? Instance { get; private set; }
 

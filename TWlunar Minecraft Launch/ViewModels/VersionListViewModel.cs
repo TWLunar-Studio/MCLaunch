@@ -26,12 +26,38 @@ public partial class VersionListViewModel : ViewModelBase
                 {
                     Console.WriteLine($"版本: {version.Version.VersionId}");
                 }
+                // 默认选中第一个版本
+                SelectedVersion = Versions[0];
+                Console.WriteLine($"VersionListViewModel: 默认选中 {SelectedVersion.Version.VersionId}");
+                
+                // 手动触发同步，确保MainWindowViewModel被更新
+                SyncToMainWindowViewModel();
             }
         }
         catch (Exception ex)
         {
             Console.WriteLine($"VersionListViewModel 错误: {ex.Message}");
             Versions = new List<MinecraftEntry>();
+        }
+    }
+
+    partial void OnSelectedVersionChanged(MinecraftEntry value)
+    {
+        Console.WriteLine($"VersionListViewModel: OnSelectedVersionChanged 被调用, value = {(value?.Version.VersionId ?? "null")}");
+        SyncToMainWindowViewModel();
+    }
+
+    private void SyncToMainWindowViewModel()
+    {
+        // 当选中版本变化时，同步到MainWindowViewModel
+        if (SelectedVersion != null && MainWindowViewModel.Instance != null)
+        {
+            Console.WriteLine($"VersionListViewModel: 设置 MainWindowViewModel.SelectedVersion = {SelectedVersion.Version.VersionId}");
+            MainWindowViewModel.Instance.SelectedVersion = SelectedVersion;
+        }
+        else
+        {
+            Console.WriteLine($"VersionListViewModel: 无法同步 - SelectedVersion = {(SelectedVersion != null ? SelectedVersion.Version.VersionId : "null")}, Instance = {(MainWindowViewModel.Instance != null ? "not null" : "null")}");
         }
     }
 }

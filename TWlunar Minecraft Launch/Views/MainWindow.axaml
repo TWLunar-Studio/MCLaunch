@@ -7,10 +7,15 @@
         xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         xmlns:views="clr-namespace:TWlunar_Minecraft_Launch.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="800"
+        Height="450"
+        MinWidth="800"
+        MinHeight="450"
         x:Class="TWlunar_Minecraft_Launch.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="TWlunar_Minecraft_Launch"
+        Title="TWML"
+        TitleFontWeight="UltraBlack"
         IsMenuVisible="True">
     <suki:SukiWindow.LogoContent>
         <Image Source="/Assets/avalonia-logo.ico" 
@@ -53,8 +58,13 @@
                 </suki:SukiSideMenuItem>
         </suki:SukiSideMenu>
         
-        <Border x:Name="BorderOverlay" ZIndex="100" Background="#30000000" IsHitTestVisible="False" Height="0"/>
-        <Border x:Name="BorderContent" ZIndex="101" Background="Azure" CornerRadius="30,30,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="0">
+        <Border x:Name="BorderOverlay" ZIndex="100" Background="#80000000" IsHitTestVisible="False" Height="0"/>
+        <Border x:Name="BorderContent" ZIndex="101" 
+                Background="{DynamicResource SukiCardBackground}" 
+                CornerRadius="30,30,0,0" 
+                HorizontalAlignment="Stretch" 
+                VerticalAlignment="Bottom" 
+                Height="0">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"></RowDefinition>
@@ -63,7 +73,7 @@
                 <Button 
                     x:Name="ButtonClose"
                     Grid.Row="0" 
-                    Background="Brown"
+                    Background="{DynamicResource SukiDangerBrush}"
                     HorizontalAlignment="Right"
                     Margin="0,10,10,0"
                     Height="25" Width="25" 
@@ -72,7 +82,7 @@
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
                     Click="CloseBorderButton_OnClick">
-                    <avalonia:MaterialIcon Kind="Close"/>
+                    <avalonia:MaterialIcon Kind="Close" Foreground="White"/>
                 </Button>
                 <ContentControl
                     Grid.Row="1"
@@ -80,6 +90,9 @@
                     <ContentControl.DataTemplates>
                         <DataTemplate DataType="vm:VersionListViewModel">
                             <views:VersionList/>
+                        </DataTemplate>
+                        <DataTemplate DataType="vm:VersionSettingViewModel">
+                            <views:VersionSetting/>
                         </DataTemplate>
                         <DataTemplate DataType="vm:InstallConfigViewModel">
                             <views:InstallConfig/>

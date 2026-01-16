@@ -5,7 +5,8 @@
              xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
              xmlns:vm="using:TWlunar_Minecraft_Launch.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="TWlunar_Minecraft_Launch.Views.Start">
+             x:Class="TWlunar_Minecraft_Launch.Views.Start"
+             FontWeight="Light">
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
@@ -17,6 +18,7 @@
             Height="200" Width="300" 
             VerticalAlignment="Top"
             HorizontalAlignment="Right"
+            FontWeight="Medium"
             Margin="0,20,20,0">
             <Grid>
                 <Grid.RowDefinitions>
@@ -38,32 +40,34 @@
                         Width="210"
                         Content="启动游戏"
                         Classes="Flat"
+                        FontWeight="Medium"
                         Click="GoButton_OnClick"/>
                 <Button Grid.Column="1" Grid.Row="3"
                         HorizontalAlignment="Right"
                         Height="50"
                         Width="100"
-                        Content="版本列表"
+                        Content="版本设置"
                         Classes="Flat"
-                        Click="VersionListButton_OnClick"/>
+                        FontWeight="Medium"
+                        Click="VersionSettingButton_OnClick"/>
                 <Button Grid.Column="3" Grid.Row="3"
                         HorizontalAlignment="Right"
                         Height="50"
                         Width="100"
                         Content="版本列表"
                         Classes="Flat"
+                        FontWeight="Medium"
                         Click="VersionListButton_OnClick"/>
                 <TextBlock
                     Grid.Column="1" 
                     Grid.ColumnSpan="3"
                     HorizontalAlignment="Left" Height="20" 
                     Grid.Row="4"
-                    x:DataType="vm:VersionListViewModel">
-                    <Run>当前版本:</Run>
+                    FontWeight="Medium"
+                    x:DataType="vm:StartViewModel">
+                    <Run Text="当前版本: " Foreground="{DynamicResource SukiTextBrush}"/>
                     <Run Text="{Binding SelectedVersion}"/>
                 </TextBlock>
-                
-
             </Grid>
         </suki:GlassCard>
         </Grid>

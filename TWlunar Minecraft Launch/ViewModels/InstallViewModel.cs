@@ -20,7 +20,7 @@ public partial class InstallViewModel : ViewModelBase
     [ObservableProperty]
     private List<VersionManifestEntry>? _oldversionList = new();
     [ObservableProperty]
-    private IEnumerable<VersionManifestEntry>? _allVersion;
+    public IEnumerable<VersionManifestEntry>? _allVersion;
 
     // 异步初始化方法
     public async Task LoadAsync()

@@ -13,11 +13,12 @@ public partial class Start : UserControl
     public Start()
     {
         InitializeComponent();
+        DataContext = new StartViewModel();
     }
 
     private void GoButton_OnClick(object? sender, RoutedEventArgs e)
     {
-        
+        //启动当前所选版本
     }
 
     private void VersionListButton_OnClick(object? sender, RoutedEventArgs e)
@@ -41,10 +42,47 @@ public partial class Start : UserControl
                 {
                     Console.WriteLine("MainWindow.DataContext 为 null");
                 }
+
                 break;
             }
+
             parent = (parent as Control)?.Parent;
         }
+
+        if (parent == null)
+        {
+            Console.WriteLine("未找到 MainWindow");
+        }
+    }
+
+    private void VersionSettingButton_OnClick(object? sender, RoutedEventArgs e)
+    {
+        Console.WriteLine("VersionSettingButton_OnClick 被调用");
+        var parent = this.Parent;
+        while (parent != null)
+        {
+            if (parent is MainWindow mainWindow)
+            {
+                Console.WriteLine("找到 MainWindow");
+                // 使用默认高度比例 1 / 1
+                mainWindow.OpenBorder();
+                var viewModel = mainWindow.DataContext as MainWindowViewModel;
+                if (viewModel != null)
+                {
+                    Console.WriteLine("设置 CurrentPage 为 VersionSettingViewModel");
+                    viewModel.CurrentPage = new VersionSettingViewModel();
+                }
+                else
+                {
+                    Console.WriteLine("MainWindow.DataContext 为 null");
+                }
+
+                break;
+            }
+
+            parent = (parent as Control)?.Parent;
+        }
+
         if (parent == null)
         {
             Console.WriteLine("未找到 MainWindow");

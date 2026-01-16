@@ -1,0 +1,100 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:TWlunar_Minecraft_Launch.ViewModels"
+             xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="TWlunar_Minecraft_Launch.Views.InstallConfig"
+             x:DataType="vm:InstallConfigViewModel">
+    <Design.DataContext>
+        <vm:InstallConfigViewModel/>
+    </Design.DataContext>
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        
+        <suki:GlassCard Grid.Row="0" Padding="20" Margin="0,0,0,20">
+            <StackPanel>
+                <TextBlock FontSize="24" FontWeight="Bold" Text="安装配置" Foreground="{DynamicResource SukiTextBrush}"/>
+                <TextBlock FontSize="14" Foreground="{DynamicResource SukiSubtleTextBrush}" Margin="0,5,0,0">
+                    <Run Text="选择版本: "/>
+                    <Run Text="{Binding SelectedVersion.Id}" FontWeight="SemiBold"/>
+                </TextBlock>
+                <TextBlock FontSize="12" Foreground="{DynamicResource SukiDisabledBrush}">
+                    <Run Text="类型: "/>
+                    <Run Text="{Binding SelectedVersion.Type}"/>
+                    <Run Text=" | "/>
+                    <Run Text="发布时间: "/>
+                    <Run Text="{Binding SelectedVersion.ReleaseTime}"/>
+                </TextBlock>
+            </StackPanel>
+        </suki:GlassCard>
+        
+        <suki:GlassCard Grid.Row="1" Padding="20">
+            <StackPanel Spacing="15">
+                <TextBlock FontSize="16" FontWeight="SemiBold" Text="安装设置" Foreground="{DynamicResource SukiTextBrush}"/>
+                
+                <StackPanel Spacing="5">
+                    <TextBlock Text="安装路径" Foreground="{DynamicResource SukiTextBrush}"/>
+                    <TextBox Text="{Binding InstallPath}" Watermark="输入安装路径"/>
+                </StackPanel>
+                
+                <StackPanel Spacing="5">
+                    <TextBlock Text="Java 路径" Foreground="{DynamicResource SukiTextBrush}"/>
+                    <ComboBox ItemsSource="{Binding JavaPaths}" 
+                              SelectedItem="{Binding SelectedJavaPath}"
+                              PlaceholderText="选择 Java 版本"/>
+                </StackPanel>
+                
+                <Separator Margin="0,10"/>
+                
+                <TextBlock FontSize="16" FontWeight="SemiBold" Text="Mod 加载器" Foreground="{DynamicResource SukiTextBrush}"/>
+                
+                <CheckBox IsChecked="{Binding InstallWithForge}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Forge " Foreground="{DynamicResource SukiTextBrush}"/>
+                        <TextBlock Text="(可与OptiFine组合)" Foreground="{DynamicResource SukiSubtleTextBrush}" FontSize="12"/>
+                    </StackPanel>
+                </CheckBox>
+                
+                <CheckBox IsChecked="{Binding InstallWithFabric}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Fabric " Foreground="{DynamicResource SukiTextBrush}"/>
+                        <TextBlock Text="(可与OptiFine组合，需OptiFabric)" Foreground="{DynamicResource SukiSubtleTextBrush}" FontSize="12"/>
+                    </StackPanel>
+                </CheckBox>
+                
+                <CheckBox IsChecked="{Binding InstallWithQuilt}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Quilt " Foreground="{DynamicResource SukiTextBrush}"/>
+                        <TextBlock Text="(不支持组合)" Foreground="{DynamicResource SukiSubtleTextBrush}" FontSize="12"/>
+                    </StackPanel>
+                </CheckBox>
+                
+                <CheckBox IsChecked="{Binding InstallWithOptifine}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="OptiFine " Foreground="{DynamicResource SukiTextBrush}"/>
+                        <TextBlock Text="(可与Forge或Fabric组合)" Foreground="{DynamicResource SukiSubtleTextBrush}" FontSize="12"/>
+                    </StackPanel>
+                </CheckBox>
+                
+                <Separator Margin="0,10"/>
+                
+                <StackPanel Spacing="5" IsVisible="{Binding IsInstalling}">
+                    <TextBlock Text="安装进度" Foreground="{DynamicResource SukiTextBrush}" FontWeight="SemiBold"/>
+                    <ProgressBar Value="{Binding InstallProgress}" Maximum="100" Height="25"/>
+                    <TextBlock Text="{Binding InstallProgressText}" Foreground="{DynamicResource SukiSubtleTextBrush}" FontSize="12" TextWrapping="Wrap"/>
+                </StackPanel>
+            </StackPanel>
+        </suki:GlassCard>
+        
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10" Margin="0,20,0,0">
+            <Button Content="取消" Classes="Flat" Width="100" Click="CancelButton_OnClick"/>
+            <Button Content="开始安装" Classes="Flat" Width="100" Click="InstallButton_OnClick"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
