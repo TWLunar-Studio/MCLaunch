@@ -31,14 +31,19 @@ public partial class StartViewModel : ViewModelBase
     {
         MinecraftParser minecraftParser = ".minecraft";
         
-        var minecraft = minecraftParser.GetMinecraft("1.12.2");
+        var minecraft = minecraftParser.GetMinecraft(SelectedVersion);
         Console.WriteLine(minecraft.Id);
         
         var javas = await JavaUtil.EnumerableJavaAsync().ToListAsync();
         var java = minecraft.GetAppropriateJava(javas);
         
-        var authenticator = new MicrosoftAuthenticator("YOUR_CLIENT_ID");
+        var authenticator = new MicrosoftAuthenticator("5b8c4951-abef-4351-a3fe-65096bb8e76b");
         
+        var oAuth2Token = await authenticator.DeviceFlowAuthAsync(deviceCode => {
+            Console.WriteLine($"请访问以登录: {deviceCode.VerificationUrl}");
+            Console.WriteLine($"输入一次性代码: {deviceCode.UserCode}");
+        });
+
         var account = new OfflineAuthenticator().Authenticate("PLAYER_NAME");
         
         MinecraftRunner runner = new(new LaunchConfig {
@@ -52,7 +57,6 @@ public partial class StartViewModel : ViewModelBase
 
         return process;
     }
-    
     private void SubscribeToMainWindowViewModel()
     {
         try

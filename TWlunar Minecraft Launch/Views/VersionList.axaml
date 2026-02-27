@@ -16,8 +16,11 @@
             ItemsSource="{Binding Versions}" 
             SelectedItem="{Binding SelectedVersion}">
             <ListBox.ItemTemplate>
-                <DataTemplate x:DataType="me:MinecraftEntry">
-                    <TextBlock Text="{Binding Version.VersionId}"/>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:DataType="vm:VersionListViewModel" Source="{Binding IconSource}" Width="20"></Image>
+                        <TextBlock x:DataType="me:MinecraftEntry" Margin="10,0,0,0" Text="{Binding Version.VersionId}"/>
+                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

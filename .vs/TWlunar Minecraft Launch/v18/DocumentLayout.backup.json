@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\c\u002B\u002Bproject\\TWlunar Minecraft Launch\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B4BA40D9-8225-4806-9E3A-6ADC5B66696A}|TWlunar Minecraft Launch\\TWlunar Minecraft Launch.csproj|d:\\c\u002B\u002Bproject\\twlunar minecraft launch\\twlunar minecraft launch\\views\\start.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{B4BA40D9-8225-4806-9E3A-6ADC5B66696A}|TWlunar Minecraft Launch\\TWlunar Minecraft Launch.csproj|solutionrelative:twlunar minecraft launch\\views\\start.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4BA40D9-8225-4806-9E3A-6ADC5B66696A}|TWlunar Minecraft Launch\\TWlunar Minecraft Launch.csproj|d:\\c\u002B\u002Bproject\\twlunar minecraft launch\\twlunar minecraft launch\\views\\mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{B4BA40D9-8225-4806-9E3A-6ADC5B66696A}|TWlunar Minecraft Launch\\TWlunar Minecraft Launch.csproj|solutionrelative:twlunar minecraft launch\\views\\mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4BA40D9-8225-4806-9E3A-6ADC5B66696A}|TWlunar Minecraft Launch\\TWlunar Minecraft Launch.csproj|d:\\c\u002B\u002Bproject\\twlunar minecraft launch\\twlunar minecraft launch\\views\\mainwindow.axaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{B4BA40D9-8225-4806-9E3A-6ADC5B66696A}|TWlunar Minecraft Launch\\TWlunar Minecraft Launch.csproj|solutionrelative:twlunar minecraft launch\\views\\mainwindow.axaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Start.axaml",
+              "DocumentMoniker": "D:\\c\u002B\u002Bproject\\TWlunar Minecraft Launch\\TWlunar Minecraft Launch\\Views\\Start.axaml",
+              "RelativeDocumentMoniker": "TWlunar Minecraft Launch\\Views\\Start.axaml",
+              "ToolTip": "D:\\c\u002B\u002Bproject\\TWlunar Minecraft Launch\\TWlunar Minecraft Launch\\Views\\Start.axaml",
+              "RelativeToolTip": "TWlunar Minecraft Launch\\Views\\Start.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-10T09:41:28.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.axaml",
+              "DocumentMoniker": "D:\\c\u002B\u002Bproject\\TWlunar Minecraft Launch\\TWlunar Minecraft Launch\\Views\\MainWindow.axaml",
+              "RelativeDocumentMoniker": "TWlunar Minecraft Launch\\Views\\MainWindow.axaml",
+              "ToolTip": "D:\\c\u002B\u002Bproject\\TWlunar Minecraft Launch\\TWlunar Minecraft Launch\\Views\\MainWindow.axaml",
+              "RelativeToolTip": "TWlunar Minecraft Launch\\Views\\MainWindow.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-10T09:20:22.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.axaml",
+              "DocumentMoniker": "D:\\c\u002B\u002Bproject\\TWlunar Minecraft Launch\\TWlunar Minecraft Launch\\Views\\MainWindow.axaml",
+              "RelativeDocumentMoniker": "TWlunar Minecraft Launch\\Views\\MainWindow.axaml",
+              "ToolTip": "D:\\c\u002B\u002Bproject\\TWlunar Minecraft Launch\\TWlunar Minecraft Launch\\Views\\MainWindow.axaml",
+              "RelativeToolTip": "TWlunar Minecraft Launch\\Views\\MainWindow.axaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-10T08:41:43.517Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

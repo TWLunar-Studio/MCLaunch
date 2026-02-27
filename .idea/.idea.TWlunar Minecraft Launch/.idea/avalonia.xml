@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="TWlunar Minecraft Launch/App.axaml" value="TWlunar Minecraft Launch/TWlunar Minecraft Launch.csproj" />
+        <entry key="TWlunar Minecraft Launch/Views/Install.axaml" value="TWlunar Minecraft Launch/TWlunar Minecraft Launch.csproj" />
+        <entry key="TWlunar Minecraft Launch/Views/InstallConfig.axaml" value="TWlunar Minecraft Launch/TWlunar Minecraft Launch.csproj" />
+        <entry key="TWlunar Minecraft Launch/Views/MainWindow.axaml" value="TWlunar Minecraft Launch/TWlunar Minecraft Launch.csproj" />
+        <entry key="TWlunar Minecraft Launch/Views/Start.axaml" value="TWlunar Minecraft Launch/TWlunar Minecraft Launch.csproj" />
+        <entry key="TWlunar Minecraft Launch/Views/Task Queue.axaml" value="TWlunar Minecraft Launch/TWlunar Minecraft Launch.csproj" />
+        <entry key="TWlunar Minecraft Launch/Views/TaskQueueView.axaml" value="TWlunar Minecraft Launch/TWlunar Minecraft Launch.csproj" />
+        <entry key="TWlunar Minecraft Launch/Views/VersionList.axaml" value="TWlunar Minecraft Launch/TWlunar Minecraft Launch.csproj" />
+        <entry key="TWlunar Minecraft Launch/Views/VersionSetting.axaml" value="TWlunar Minecraft Launch/TWlunar Minecraft Launch.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="UserContentModel">
+    <attachedFolders />
+    <explicitIncludes />
+    <explicitExcludes>
+      <Path>C:/Program Files/dotnet/sdk/10.0.102/Sdks/Microsoft.NET.Sdk/analyzers/build/config</Path>
+      <Path>MinecraftLaunch/MinecraftLaunch.Base/obj</Path>
+      <Path>MinecraftLaunch/MinecraftLaunch/obj</Path>
+    </explicitExcludes>
+  </component>
+</project>

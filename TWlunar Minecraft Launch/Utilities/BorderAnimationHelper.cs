@@ -1,19 +1,20 @@
 using System;
 using System.Threading.Tasks;
 using Avalonia.Controls;
+using SukiUI.Controls;
 
 namespace TWlunar_Minecraft_Launch.Utilities;
 
 public class BorderAnimationHelper
 {
-    private readonly Border _border;
+    private readonly GlassCard _border;
     private readonly Border _overlayBorder;
     private readonly Button _closeButton;
     private readonly Window _window;
     private double _currentHeightRatio = 0;
     private bool _isOpen = false;
 
-    public BorderAnimationHelper(Border border, Border overlayBorder, Button closeButton, Window window)
+    public BorderAnimationHelper(GlassCard border, Border overlayBorder, Button closeButton, Window window)
     {
         _border = border;
         _overlayBorder = overlayBorder;

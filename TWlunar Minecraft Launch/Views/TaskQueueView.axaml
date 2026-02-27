@@ -1,0 +1,34 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:model="clr-namespace:TWlunar_Minecraft_Launch.Models"
+             xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="TWlunar_Minecraft_Launch.Views.TaskQueueView">
+    <Design.DataContext>
+        <model:TaskQueue/>
+    </Design.DataContext>
+    <StackPanel
+        Orientation="Horizontal">
+        <ItemsControl
+            x:DataType="model:TaskQueue"
+            ItemsSource="{Binding Tasks}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <suki:GlassCard Margin="5">
+                        <StackPanel Orientation="Vertical" MinWidth="300">
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                            <TextBlock Text="{Binding CurrentStepName}" Margin="0,5,0,0" />
+                            <ProgressBar Value="{Binding ProgressPercentage}" Maximum="1" Margin="0,5,0,0" />
+                            <Grid ColumnDefinitions="*,Auto">
+                                <TextBlock Grid.Column="0" Text="{Binding ProgressText}" />
+                                <TextBlock Grid.Column="1" Text="{Binding SpeedText}" HorizontalAlignment="Right" />
+                            </Grid>
+                        </StackPanel>
+                    </suki:GlassCard>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
+</UserControl>

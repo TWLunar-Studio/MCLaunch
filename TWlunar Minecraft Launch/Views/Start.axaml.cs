@@ -58,34 +58,28 @@ public partial class Start : UserControl
     private void VersionSettingButton_OnClick(object? sender, RoutedEventArgs e)
     {
         Console.WriteLine("VersionSettingButton_OnClick 被调用");
+        
+        // 查找 MainWindow 并打开配置界面
         var parent = this.Parent;
         while (parent != null)
         {
             if (parent is MainWindow mainWindow)
             {
-                Console.WriteLine("找到 MainWindow");
-                // 使用默认高度比例 1 / 1
-                mainWindow.OpenBorder();
+                // 创建配置 ViewModel
+                var configViewModel = new VersionSettingViewModel();
+                    
+                // 打开 Border，使用全屏覆盖（heightRatio = 1.0）
+                mainWindow.OpenBorder(1.0);
+                    
+                // 设置 CurrentPage
                 var viewModel = mainWindow.DataContext as MainWindowViewModel;
                 if (viewModel != null)
                 {
-                    Console.WriteLine("设置 CurrentPage 为 VersionSettingViewModel");
-                    viewModel.CurrentPage = new VersionSettingViewModel();
+                    viewModel.CurrentPage = configViewModel;
                 }
-                else
-                {
-                    Console.WriteLine("MainWindow.DataContext 为 null");
-                }
-
                 break;
             }
-
             parent = (parent as Control)?.Parent;
-        }
-
-        if (parent == null)
-        {
-            Console.WriteLine("未找到 MainWindow");
         }
     }
 }

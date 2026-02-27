@@ -14,15 +14,15 @@ public partial class InstallConfig : UserControl
     public InstallConfig()
     {
         InitializeComponent();
+        Loaded += OnLoaded;
     }
 
     public InstallConfig(InstallConfigViewModel viewModel) : this()
     {
         DataContext = viewModel;
-        _ = InitializeViewModelAsync();
     }
 
-    private async Task InitializeViewModelAsync()
+    private async void OnLoaded(object? sender, RoutedEventArgs e)
     {
         if (DataContext is InstallConfigViewModel viewModel)
         {
@@ -61,10 +61,10 @@ public partial class InstallConfig : UserControl
             {
                 viewModel.InstallProgressText = "警告: 未选择Java路径，某些组件可能无法正常安装";
             }
-            
+
             // 执行安装
             bool success = await viewModel.InstallAsync();
-            
+
             if (!success)
             {
                 viewModel.InstallProgressText = "安装失败，请检查错误信息";

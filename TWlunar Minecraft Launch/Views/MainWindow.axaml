@@ -58,8 +58,8 @@
                 </suki:SukiSideMenuItem>
         </suki:SukiSideMenu>
         
-        <Border x:Name="BorderOverlay" ZIndex="100" Background="#80000000" IsHitTestVisible="False" Height="0"/>
-        <Border x:Name="BorderContent" ZIndex="101" 
+        <Border x:Name="BorderOverlay" ZIndex="100" Background="#90000000" IsHitTestVisible="False" Height="0"/>
+        <suki:GlassCard x:Name="BorderContent" ZIndex="101" 
                 Background="{DynamicResource SukiCardBackground}" 
                 CornerRadius="30,30,0,0" 
                 HorizontalAlignment="Stretch" 
@@ -84,22 +84,22 @@
                     Click="CloseBorderButton_OnClick">
                     <avalonia:MaterialIcon Kind="Close" Foreground="White"/>
                 </Button>
-                <ContentControl
-                    Grid.Row="1"
-                    Content="{Binding CurrentPage}">
-                    <ContentControl.DataTemplates>
-                        <DataTemplate DataType="vm:VersionListViewModel">
-                            <views:VersionList/>
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:VersionSettingViewModel">
-                            <views:VersionSetting/>
-                        </DataTemplate>
-                        <DataTemplate DataType="vm:InstallConfigViewModel">
-                            <views:InstallConfig/>
-                        </DataTemplate>
-                    </ContentControl.DataTemplates>
-                </ContentControl>
+                <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                    <ContentControl Content="{Binding CurrentPage}">
+                        <ContentControl.DataTemplates>
+                            <DataTemplate DataType="vm:VersionListViewModel">
+                                <views:VersionList/>
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:VersionSettingViewModel">
+                                <views:VersionSetting/>
+                            </DataTemplate>
+                            <DataTemplate DataType="vm:InstallConfigViewModel">
+                                <views:InstallConfig/>
+                            </DataTemplate>
+                        </ContentControl.DataTemplates>
+                    </ContentControl>
+                </ScrollViewer>
             </Grid>
-        </Border>
+        </suki:GlassCard>
     </Grid>
 </suki:SukiWindow>

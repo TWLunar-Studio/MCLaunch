@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using MinecraftLaunch.Base.Models.Game;
 using MinecraftLaunch.Components.Parser;
@@ -13,9 +14,13 @@ public partial class VersionListViewModel : ViewModelBase
     private List<MinecraftEntry> _versions;
 
     [ObservableProperty] private MinecraftEntry _selectedVersion;
+    
+    [ObservableProperty] private string _iconSource;
 
     public VersionListViewModel()
     {
+        IconSource = "avares://TWlunar_Minecraft_Launch/Assets/Icons/version_icon.png";
+        Console.WriteLine("VersionListViewModel: 构造函数被调用");
         try
         {
             Versions = minecraftParser.GetMinecrafts();
@@ -26,10 +31,6 @@ public partial class VersionListViewModel : ViewModelBase
                 {
                     Console.WriteLine($"版本: {version.Version.VersionId}");
                 }
-                // 默认选中第一个版本
-                SelectedVersion = Versions[0];
-                Console.WriteLine($"VersionListViewModel: 默认选中 {SelectedVersion.Version.VersionId}");
-                
                 // 手动触发同步，确保MainWindowViewModel被更新
                 SyncToMainWindowViewModel();
             }

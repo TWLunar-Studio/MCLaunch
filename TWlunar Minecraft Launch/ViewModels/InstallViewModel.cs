@@ -6,6 +6,7 @@ using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using MinecraftLaunch.Base.Models.Network;
 using MinecraftLaunch.Components.Installer;
+using System.Linq;
 
 namespace TWlunar_Minecraft_Launch.ViewModels;
 
